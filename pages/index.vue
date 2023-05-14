@@ -1,27 +1,20 @@
 <script lang="ts">
 export default {
     created() {
-        this.lastModDate = new Date(document.lastModified);
+        const lastmodDate = new Date(document.lastModified);
+        const timezoneOffset = new Date().getTimezoneOffset()
+        const lastmodStr = lastmodDate.getFullYear() + "/" + (lastmodDate.getMonth() + 1) + "/" + lastmodDate.getDate() + " " + lastmodDate.getHours() + ":" + ("0" + lastmodDate.getMinutes()).slice(-2) + ":" + ("0" + lastmodDate.getSeconds()).slice(-2)
+        const timezone = (timezoneOffset === -540) ? "(JST)" : `GMT ${(timezoneOffset >= 0) ? "+" : ""}${Math.floor(timezoneOffset / -60)}:${timezoneOffset / 60}`
+        this.lastmodStr = lastmodStr;
+        this.timezone = timezone;
     },
     data(vm) {
         return {
-            lastModDate: {} as Date
+            lastmodStr: "",
+            timezone: ""
         }
     },
-    computed: {
-        lastmod() {
-            const lastModDate = this.lastModDate
-            const timezoneOffset = new Date().getTimezoneOffset()
-            const lastmod = lastModDate.getFullYear() + "/" + (lastModDate.getMonth() + 1) + "/" + lastModDate.getDate() + " " + lastModDate.getHours() + ":" + ("0" + lastModDate.getMinutes()).slice(-2) + ":" + ("0" + lastModDate.getSeconds()).slice(-2)
-            return lastmod
-        },
-        timezoneOffset() {
-            return new Date().getTimezoneOffset()
-        },
-        timezone() {
-            return (this.timezoneOffset === -540) ? "(JST)" : `GMT ${(this.timezoneOffset >= 0) ? "+" : ""}${Math.floor(this.timezoneOffset / -60)}:${this.timezoneOffset / 60}`
-        }
-    }
+
 
 }
 </script>
@@ -42,7 +35,7 @@ export default {
             <NuxtLink to="/trpg">/trpg</NuxtLink>
         </p>
         <div class="footer__inner">
-            <p>last modified at: {{ lastmod + " " + timezone }}</p>
+            <p>last modified at: {{ lastmodStr + " " + timezone }}</p>
             <p>© 2022 cheerppy</p>
         </div>
     </div>
