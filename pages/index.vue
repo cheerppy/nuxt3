@@ -2,7 +2,10 @@
 
 <template>
     <div>
-        <p>Hello Nuxt!</p>
+        <p>Hello Nuxt!!</p>
+        <p>
+            <NuxtLink to="/coc">NuxtLink</NuxtLink>
+        </p>
     </div>
 </template>
 
