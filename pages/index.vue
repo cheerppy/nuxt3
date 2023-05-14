@@ -1,8 +1,21 @@
-<script lang="ts" setup>
-const jst = new Date(document.lastModified);
-const timezoneOffset = new Date().getTimezoneOffset()
-const lastmod = jst.getFullYear() + "/" + (jst.getMonth() + 1) + "/" + jst.getDate() + " " + jst.getHours() + ":" + ("0" + jst.getMinutes()).slice(-2) + ":" + ("0" + jst.getSeconds()).slice(-2)
-const timezone = (timezoneOffset === -540) ? "(JST)" : `GMT ${(timezoneOffset >= 0) ? "+" : ""}${Math.floor(timezoneOffset / -60)}:${timezoneOffset / 60}`
+<script lang="ts">
+export default {
+    computed: {
+        lastmod() {
+            const lastModDate = new Date(document.lastModified);
+            const timezoneOffset = new Date().getTimezoneOffset()
+            const lastmod = lastModDate.getFullYear() + "/" + (lastModDate.getMonth() + 1) + "/" + lastModDate.getDate() + " " + lastModDate.getHours() + ":" + ("0" + lastModDate.getMinutes()).slice(-2) + ":" + ("0" + lastModDate.getSeconds()).slice(-2)
+            return lastmod
+        },
+        timezoneOffset() {
+            return new Date().getTimezoneOffset()
+        },
+        timezone() {
+            return (this.timezoneOffset === -540) ? "(JST)" : `GMT ${(this.timezoneOffset >= 0) ? "+" : ""}${Math.floor(this.timezoneOffset / -60)}:${this.timezoneOffset / 60}`
+        }
+    }
+
+}
 </script>
 
 <template>
