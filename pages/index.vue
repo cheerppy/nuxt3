@@ -7,7 +7,10 @@
             <NuxtLink to="/coc">coc</NuxtLink>
         </p>
         <p>
-            <NuxtLink to="/trpg">trpg</NuxtLink>
+            <NuxtLink to="../coc">../coc</NuxtLink>
+        </p>
+        <p>
+            <NuxtLink to="../trpg">../trpg</NuxtLink>
         </p>
     </div>
 </template>
