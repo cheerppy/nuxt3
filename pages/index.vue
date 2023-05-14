@@ -10,7 +10,7 @@ export default {
     },
     computed: {
         lastmod() {
-            const lastModDate = new Date(document.lastModified);
+            const lastModDate = this.lastModDate
             const timezoneOffset = new Date().getTimezoneOffset()
             const lastmod = lastModDate.getFullYear() + "/" + (lastModDate.getMonth() + 1) + "/" + lastModDate.getDate() + " " + lastModDate.getHours() + ":" + ("0" + lastModDate.getMinutes()).slice(-2) + ":" + ("0" + lastModDate.getSeconds()).slice(-2)
             return lastmod
