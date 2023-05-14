@@ -21,7 +21,7 @@ export default {
 
 <template>
     <div>
-        <p>Hello Nuxt!!!</p>
+        <p>Hello Nuxt!!!!</p>
         <p>
             <NuxtLink to="coc">coc</NuxtLink>
         </p>
@@ -29,10 +29,25 @@ export default {
             <NuxtLink to="/coc">/coc</NuxtLink>
         </p>
         <p>
+            <NuxtLink to="./coc">./coc</NuxtLink>
+        </p>
+        <p>
             <NuxtLink to="trpg">trpg</NuxtLink>
         </p>
         <p>
             <NuxtLink to="/trpg">/trpg</NuxtLink>
+        </p>
+        <p>
+            <NuxtLink to="./trpg">./trpg</NuxtLink>
+        </p>
+        <p>
+            <NuxtLink to="layouting">layouting</NuxtLink>
+        </p>
+        <p>
+            <NuxtLink to="/layouting">/layouting</NuxtLink>
+        </p>
+        <p>
+            <NuxtLink to="./layouting">./layouting</NuxtLink>
         </p>
 
         <div class="footer__inner">
