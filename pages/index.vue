@@ -1,5 +1,13 @@
 <script lang="ts">
 export default {
+    created() {
+        this.lastModDate = new Date(document.lastModified);
+    },
+    data(vm) {
+        return {
+            lastModDate: {} as Date
+        }
+    },
     computed: {
         lastmod() {
             const lastModDate = new Date(document.lastModified);
